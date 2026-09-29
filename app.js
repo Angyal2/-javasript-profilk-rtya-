@@ -89,4 +89,15 @@ resetButton.addEventListener("click", function () {
     nameInput.focus();
   });
 
+  const themeButton = document.querySelector("#themeButton");
+
 // 5. A témaváltó eseménykezelő csak a feature/sotet-tema ágon készül el.
+themeButton.addEventListener("click", function () {
+    const darkThemeEnabled = document.body.classList.toggle("dark-theme");
+  
+    themeButton.setAttribute("aria-pressed", String(darkThemeEnabled));
+    themeButton.textContent = darkThemeEnabled ? "Világos téma" : "Sötét téma";
+    showStatus(
+      darkThemeEnabled ? "A sötét téma bekapcsolva." : "A világos téma bekapcsolva."
+    );
+  });
